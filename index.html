@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Priya Yadav — Front-End Developer</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous"/>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent-1: #2b7cff;
+      --accent-2: #7b61ff;
+      --muted: #6c757d;
+      --bg: #f6fbff;
+      --card: #ffffff;
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: var(--bg);
+      color:#0b1620;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+    }
+    .nav-link { color: #163147; font-weight:600; }
+    .nav-link:hover{ color: var(--accent-1); }
+
+    /* HERO */
+    .hero {
+      border-radius: var(--radius);
+      padding: 40px;
+      margin-top: 20px;
+      background: linear-gradient(135deg, rgba(43,124,255,0.06), rgba(123,97,255,0.03));
+      display:flex;
+      gap:20px;
+      align-items:center;
+    }
+    .profile-photo{
+      width:120px; height:120px; border-radius:50%;
+      background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:800; font-size:30px;
+      box-shadow: 0 12px 30px rgba(43,124,255,0.12);
+      flex-shrink:0;
+      overflow:hidden;
+    }
+    .hero h1 { font-size:1.6rem; margin:0; font-weight:800; letter-spacing:0.2px; }
+    .hero .subtitle { color:var(--muted); margin-top:6px; font-weight:600; }
+
+    .typing { color: var(--accent-1); font-weight:700; }
+
+    /* SECTIONS */
+    .section-title{
+      font-size:1rem; font-weight:700; margin-bottom:12px;
+    }
+    .card-custom{
+      border-radius:12px; border: none; box-shadow: 0 10px 30px rgba(15,23,42,0.05);
+      background: var(--card);
+    }
+
+    /* Skills badges */
+    .skill {
+      display:inline-block; padding:8px 12px; border-radius:999px;
+      background: linear-gradient(90deg, rgba(43,124,255,0.07), rgba(123,97,255,0.05));
+      color: var(--accent-1); font-weight:700; margin:4px 6px 4px 0;
+      font-size:0.86rem;
+    }
+
+    /* Projects hover */
+    .project-card{
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .project-card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(15,23,42,0.08);
+    }
+
+    /* Testimonials */
+    .quote {
+      font-size: 0.95rem; color:#223;
+    }
+    .quote small { color:var(--muted); display:block; margin-top:6px; }
+
+    /* Contact form */
+    .form-control:focus { box-shadow: 0 0 0 4px rgba(43,124,255,0.06); border-color: var(--accent-1); }
+
+    footer { margin-top:34px; text-align:center; color:var(--muted); padding:14px 0; }
+
+    /* Responsive */
+    @media (max-width:767px){
+      .hero { flex-direction:row; gap:12px; padding:18px; }
+      .hero h1 { font-size:1.25rem; }
+      .profile-photo{ width:86px; height:86px; font-size:20px; }
+    }
+
+    /* Minor animations */
+    .fade-up { opacity:0; transform: translateY(12px); transition: all .6s ease-out; }
+    .fade-up.show { opacity:1; transform: translateY(0); }
+
+    /* CTA buttons */
+    .btn-accent {
+      background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+      color:#fff; border:none; font-weight:700;
+      box-shadow: 0 8px 24px rgba(43,124,255,0.12);
+    }
+    .btn-outline-accent {
+      border: 2px solid rgba(43,124,255,0.12);
+      color:var(--accent-1); font-weight:700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800">PY</div>
+        <div class="d-none d-sm-block"><strong>Priya Yadav</strong><div style="font-size:12px;color:var(--muted);margin-top:-2px">Front-End Developer</div></div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container py-4">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="profile-photo" id="photo">
+        <!-- Replace with <img src="photo.jpg" alt="Priya"> if you provide a photo -->
+        PY
+      </div>
+
+      <div class="flex-grow-1">
+        <h1>Hello — I’m <span style="color:var(--accent-1)">Priya Yadav</span></h1>
+        <div class="subtitle">Front-End Developer • HTML • CSS • React.js • Flutter</div>
+        <p class="mt-3 mb-3" style="max-width:680px">
+          I build modern, responsive interfaces and engaging user experiences. I convert designs to pixel-perfect code and optimize performance for cross-device users.
+          <span class="typing" id="typing"></span>
+        </p>
+
+        <div class="d-flex gap-2 flex-wrap">
+          <a class="btn btn-accent btn-lg" href="mailto:priyu301001@gmail.com">Hire Me</a>
+
+          <a class="btn btn-outline-secondary btn-lg" href="#projects">See Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO COLUMN LAYOUT: LEFT MAIN / RIGHT SIDEBAR -->
+    <div class="row mt-4">
+      <!-- LEFT -->
+      <div class="col-lg-8">
+
+        <!-- ABOUT -->
+        <section id="about" class="mb-4 fade-up">
+          <div class="section-title">About Me</div>
+          <div class="card card-custom p-3">
+            <p class="mb-1">
+              I'm a Front-End Developer currently working at <strong>99isolutions</strong>. I specialize in building responsive websites, converting Figma to HTML/CSS, and developing interactive UIs using React.
+            </p>
+            <p class="mb-0"><strong>Current:</strong> Software Developer at 99isolutions (April 2024 - Present)</p>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="mb-4 fade-up">
+          <div class="section-title">Selected Projects</div>
+          <div class="row g-3">
+            <!-- Project 1 -->
+            <div class="col-md-6">
+              <div class="card card-custom p-3 project-card h-100">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="fw-semibold">Todo List</div>
+                    <small class="text-muted">May 2024 - Jun 2024</small>
+                  </div>
+                  <div><span class="badge bg-light text-dark">React</span></div>
+                </div>
+                <p class="mt-2 mb-2">React-based todo app with CRUD, filtering and localStorage persistence. Focus on reusable components and clean UI.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank">Live</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="https://github.com/priyayadav3012" target="_blank">Code</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="col-md-6">
+              <div class="card card-custom p-3 project-card h-100">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="fw-semibold">Weather App</div>
+                    <small class="text-muted">Jan 2024 - Feb 2024</small>
+                  </div>
+                  <div><span class="badge bg-light text-dark">React • API</span></div>
+                </div>
+                <p class="mt-2 mb-2">Shows real-time weather using OpenWeather API, with multi-day forecasts and error handling.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank">Live</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="https://github.com/priyayadav3012" target="_blank">Code</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="col-md-6">
+              <div class="card card-custom p-3 project-card h-100">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="fw-semibold">Calculator</div>
+                    <small class="text-muted">Mar 2024 - Apr 2024</small>
+                  </div>
+                  <div><span class="badge bg-light text-dark">React</span></div>
+                </div>
+                <p class="mt-2 mb-2">Keyboard-friendly calculator with clean UX and responsive layout.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank">Live</a>
+                  <a class="btn btn-sm btn-outline-secondary" href="https://github.com/priyayadav3012" target="_blank">Code</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="col-md-6">
+              <div class="card card-custom p-3 project-card h-100">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div>
+                    <div class="fw-semibold">GetGabs Dashboard</div>
+                    <small class="text-muted">Company Project</small>
+                  </div>
+                  <div><span class="badge bg-light text-dark">WordPress • Flutter</span></div>
+                </div>
+                <p class="mt-2 mb-2">Client dashboard with chatbot, templates and automation; deployed via cPanel with focus on performance.</p>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-secondary" href="#" target="_blank">Preview</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" class="mb-4 fade-up">
+          <div class="section-title">Services I Offer</div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card card-custom p-3 h-100">
+                <div class="fw-semibold">Figma to HTML</div>
+                <p class="mb-0">Pixel-perfect conversion of designs to responsive HTML/CSS with attention to accessibility and semantics.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card card-custom p-3 h-100">
+                <div class="fw-semibold">Landing Pages</div>
+                <p class="mb-0">High-converting landing pages optimized for speed and mobile devices.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card card-custom p-3 h-100">
+                <div class="fw-semibold">React UI</div>
+                <p class="mb-0">Interactive components and SPA pages using React, hooks and modern state patterns.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card card-custom p-3 h-100">
+                <div class="fw-semibold">Website Redesign</div>
+                <p class="mb-0">UI refresh and performance improvements for existing websites with responsive focus.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="mb-4 fade-up">
+          <div class="section-title">Testimonials</div>
+          <div class="card card-custom p-3">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="quote">
+                  “Priya delivered a beautiful landing page quickly — pixel perfect and responsive.”
+                  <small> — Project Manager, Shop99pandit</small>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="quote">
+                  “Very reliable and fast turnaround. Great communication.” 
+                  <small> — Client, Get It SMS</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="col-lg-4">
+        <div class="card card-custom p-3 mb-3 fade-up">
+          <div class="section-title">Skills</div>
+          <div class="mb-2">
+            <span class="skill">HTML5</span>
+            <span class="skill">CSS3</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React.js</span>
+            <span class="skill">Flutter</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">Firebase</span>
+            <span class="skill">Git</span>
+          </div>
+        </div>
+
+        <div class="card card-custom p-3 mb-3 fade-up">
+          <div class="section-title">Contact</div>
+          <p class="mb-1"><strong>Email</strong><br><a href="mailto:priyu301001@gmail.com">priyu301001@gmail.com</a></p>
+          <p class="mb-1"><strong>Phone</strong><br><a href="tel:+917240687737">+91 7240687737</a></p>
+          <p class="mb-1"><strong>LinkedIn</strong><br><a href="https://www.linkedin.com/in/priya-yadav-4b7853242" target="_blank">Priya Yadav</a></p>
+          <p class="mb-0"><strong>GitHub</strong><br><a href="https://github.com/priyayadav3012" target="_blank">priyayadav3012</a></p>
+        </div>
+
+        <div class="card card-custom p-3 fade-up">
+          <div class="section-title">Quick Links</div>
+          <div class="d-grid gap-2">
+            <a class="btn btn-accent" href="mailto:priyu301001@gmail.com">Email Me</a>
+            <a class="btn btn-outline-accent" href="Priya_Yadav_Resume.pdf" download>Download Resume</a>
+            <a class="btn btn-outline-secondary" href="https://github.com/priyayadav3012" target="_blank">View GitHub</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <section id="contact" class="mt-4 mb-4 fade-up">
+      <div class="section-title">Send a message</div>
+      <div class="card card-custom p-3">
+        <!-- Note: This uses mailto fallback. For live sites use Formspree / Netlify Forms -->
+        <form id="contactForm">
+          <div class="row g-2">
+            <div class="col-md-6">
+              <input class="form-control" type="text" id="name" placeholder="Your name" required>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control" type="email" id="email" placeholder="Your email" required>
+            </div>
+            <div class="col-12">
+              <input class="form-control" type="text" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="col-12">
+              <textarea class="form-control" id="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-accent">Send Message</button>
+            </div>
+          </div>
+        </form>
+        <div class="mt-2 text-muted small">Tip: For production, connect this form to Formspree or Netlify forms to receive messages directly.</div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="yr"></span> Priya Yadav — Front-End Developer • Crafted with ❤️
+    </footer>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Typing effect (simple)
+    (function(){
+      const words = ['Responsive UI', 'Pixel-perfect HTML/CSS', 'React Components', 'Fast & Accessible'];
+      let idx = 0, char = 0, forward = true;
+      const el = document.getElementById('typing');
+      function step(){
+        const w = words[idx];
+        if(forward){
+          char++;
+          el.textContent = w.slice(0,char);
+          if(char === w.length){ forward = false; setTimeout(step, 1000); return; }
+        } else {
+          char--;
+          el.textContent = w.slice(0,char);
+          if(char === 0){ forward = true; idx = (idx+1)%words.length; }
+        }
+        setTimeout(step, forward?80:40);
+      }
+      step();
+    })();
+
+    // Simple reveal animation on scroll
+    function reveal(){
+      document.querySelectorAll('.fade-up').forEach(el=>{
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 60) el.classList.add('show');
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+
+    // Contact form: mailto fallback
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      const mailto = `mailto:priyu301001@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+      // Open default mail client
+      window.location.href = mailto;
+    });
+
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
